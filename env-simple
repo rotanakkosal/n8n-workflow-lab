@@ -1,0 +1,12 @@
+# Copy this file to .env and fill in your own values.
+
+N8N_VERSION=stable
+
+POSTGRES_USER=change_me
+POSTGRES_PASSWORD=change_me
+POSTGRES_DB=n8n
+
+POSTGRES_NON_ROOT_USER=change_me
+POSTGRES_NON_ROOT_PASSWORD=change_me
+
+RUNNERS_AUTH_TOKEN=change_this_token
