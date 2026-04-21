@@ -33,3 +33,11 @@ docker-compose stop
 ## Configuration
 
 You can change the default PostgreSQL database name, username, and password in [`.env`](.env).
+
+## Environment Template
+
+Use [env-simple](env-simple) as the local template for your environment variables.
+
+1. Copy `env-simple` to `.env`
+2. Replace the placeholder values with your own credentials
+3. Start the stack with `docker-compose up -d`
