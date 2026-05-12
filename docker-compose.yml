@@ -17,8 +17,10 @@ services:
     volumes:
       - db_storage:/var/lib/postgresql/data
       - ./init-data.sh:/docker-entrypoint-initdb.d/init-data.sh
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
     healthcheck:
-      test: ['CMD-SHELL', 'pg_isready -h localhost -U ${POSTGRES_USER} -d ${POSTGRES_DB}']
+      test: ['CMD-SHELL', 'pg_isready -h host.docker.internal -U ${POSTGRES_USER} -d ${POSTGRES_DB}']
       interval: 5s
       timeout: 5s
       retries: 10
@@ -42,6 +44,8 @@ services:
       - postgres
     volumes:
       - n8n_storage:/home/node/.n8n
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
     depends_on:
       postgres:
         condition: service_healthy
@@ -54,3 +58,5 @@ services:
       - N8N_RUNNERS_TASK_BROKER_URI=http://n8n:5679
     depends_on:
       - n8n
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
